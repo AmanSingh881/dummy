@@ -29,7 +29,7 @@ sudo kubeadm init \
 # STEP 2: Setup kubeconfig for kubectl
 # --------------------------
 echo "[INFO] Setting up kubeconfig for kubectl..."
-mkdir -p /home/ubuntu/.kube
+sudo mkdir -p /home/ubuntu/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
 sudo chown ubuntu:ubuntu /home/ubuntu/.kube/config
 
@@ -37,7 +37,7 @@ sudo chown ubuntu:ubuntu /home/ubuntu/.kube/config
 # STEP 3: Create non-expiring join token
 # --------------------------
 echo "[INFO] Creating non-expiring join token..."
-JOIN_TOKEN=$(kubeadm token create --ttl 0)
+JOIN_TOKEN=$(sudo kubeadm token create --ttl 0)
 
 # --------------------------
 # STEP 4: Extract discovery token CA cert hash
@@ -52,7 +52,7 @@ CA_CERT_HASH=$(openssl x509 -pubkey -in /etc/kubernetes/pki/ca.crt \
 # STEP 5: Upload control-plane certificates and extract certificate key
 # --------------------------
 echo "[INFO] Uploading control-plane certificates..."
-CERT_KEY=$(kubeadm init phase upload-certs --upload-certs | tail -n 1)
+CERT_KEY=$(sudo kubeadm init phase upload-certs --upload-certs | tail -n 1)
 
 # --------------------------
 # STEP 6: Store values in AWS SSM Parameter Store
