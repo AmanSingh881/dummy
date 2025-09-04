@@ -50,6 +50,10 @@ sudo kubeadm join ${LOAD_BALANCER_DNS}:6443 \
   --control-plane \
   --certificate-key ${CERT_KEY}
 
+sudo mkdir -p /home/ubuntu/.kube
+sudo cp -i /etc/kubernetes/admin.conf /home/ubuntu/.kube/config
+sudo chown ubuntu:ubuntu /home/ubuntu/.kube/config
+
 echo "[INFO] Node successfully joined as control-plane!"
 
 
