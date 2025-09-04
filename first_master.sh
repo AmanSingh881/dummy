@@ -93,5 +93,6 @@ echo ""
 echo "Worker node:"
 echo "kubeadm join ${LOAD_BALANCER_DNS}:6443 --token ${JOIN_TOKEN} --discovery-token-ca-cert-hash sha256:${CA_CERT_HASH}"
 
-#kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.30.3/manifests/tigera-operator.yaml
-#kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.30.3/manifests/custom-resources.yaml
+kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.30.3/manifests/tigera-operator.yaml
+sudo apt-get update
+kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.30.3/manifests/custom-resources.yaml
