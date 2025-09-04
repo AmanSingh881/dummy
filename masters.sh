@@ -5,6 +5,7 @@
 # --------------------------
 
 AWS_REGION="us-east-1"
+
 LOAD_BALANCER_DNS=$(aws ssm get-parameter \
   --name "/myapp/nlb_dns" \
   --with-decryption \
