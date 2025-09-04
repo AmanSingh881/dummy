@@ -30,7 +30,7 @@ sudo kubeadm init \
 # --------------------------
 echo "[INFO] Setting up kubeconfig for kubectl..."
 sudo mkdir -p /home/ubuntu/.kube
-sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo cp -i /etc/kubernetes/admin.conf /home/ubuntu/.kube/config
 sudo chown ubuntu:ubuntu /home/ubuntu/.kube/config
 
 # --------------------------
