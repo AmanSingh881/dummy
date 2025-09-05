@@ -98,12 +98,3 @@ echo "kubeadm join ${LOAD_BALANCER_DNS}:6443 --token ${JOIN_TOKEN} --discovery-t
 # sudo apt-get update
 # kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.30.3/manifests/custom-resources.yaml
 
-sleep 10
-
-kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.30.3/manifests/tigera-operator.yaml
-
-sleep 10
-
-curl https://raw.githubusercontent.com/projectcalico/calico/v3.30.3/manifests/custom-resources.yaml -O
-
-kubectl apply -f custom-resources.yaml
