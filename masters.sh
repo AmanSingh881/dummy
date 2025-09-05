@@ -62,9 +62,11 @@ echo "[INFO] Node successfully joined as control-plane!"
 # kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.30.3/manifests/custom-resources.yaml
 
 
-sudo apt-get update
+sleep 10
 
 kubectl create -f https://raw.githubusercontent.com/projectcalico/calico/v3.30.3/manifests/tigera-operator.yaml
+
+sleep 10
 
 curl https://raw.githubusercontent.com/projectcalico/calico/v3.30.3/manifests/custom-resources.yaml -O
 
