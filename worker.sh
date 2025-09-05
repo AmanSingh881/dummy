@@ -4,13 +4,14 @@
 # --------------------------
 # CONFIGURATION
 # --------------------------
+AWS_REGION="us-east-1"
 LOAD_BALANCER_DNS=$(aws ssm get-parameter \
   --name "/myapp/nlb_dns" \
   --with-decryption \
   --region ${AWS_REGION} \
   --query "Parameter.Value" \
   --output text)
-AWS_REGION="us-east-1"
+
 
 # --------------------------
 # STEP 1: Fetch values from AWS SSM Parameter Store
