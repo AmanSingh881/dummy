@@ -23,7 +23,8 @@ LOAD_BALANCER_DNS=$(aws ssm get-parameter \
 sudo kubeadm init \
   --control-plane-endpoint "${LOAD_BALANCER_DNS}:6443" \
   --upload-certs \
-  --pod-network-cidr="${POD_NETWORK_CIDR}"
+  --pod-network-cidr="${POD_NETWORK_CIDR}"\
+  --cloud-provider=external
 
 # --------------------------
 # STEP 2: Setup kubeconfig for kubectl
